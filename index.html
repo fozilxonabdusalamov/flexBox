@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox - Senior Daraja</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1>CSS Flexbox Senior Guide</h1>
+            <ul class="nav-menu">
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#container">Container</a></li>
+                <li><a href="#items">Items</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#advanced">Advanced</a></li>
+                <li><a href="#grid">Grid</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- FLEXBOX ASOSLARI -->
+        <section id="basics" class="section">
+            <h2>1. Flexbox Asoslari</h2>
+            <div class="content-grid">
+                <div class="explanation">
+                    <h3>Flexbox nima?</h3>
+                    <p><strong>Flexbox (Flexible Box Layout)</strong> - bu CSS-ning kuchli layouting usuli bo'lib, elementlarni bir o'lchovda (horizontal yoki vertical) joylashtirishga mo'ljallangan.</p>
+                    
+                    <h4>Asosiy tushunchalar:</h4>
+                    <ul>
+                        <li><strong>Flex Container</strong> - display: flex qo'yilgan asosiy element</li>
+                        <li><strong>Flex Items</strong> - flex container ichidagi to'g'ridan-to'g'ri bolalar</li>
+                        <li><strong>Main Axis</strong> - asosiy yo'nalish (default: left to right)</li>
+                        <li><strong>Cross Axis</strong> - asosiy yo'nalishga perpendikulyar yo'nalish</li>
+                    </ul>
+                </div>
+                
+                <div class="demo basic-demo">
+                    <h4>Oddiy Flexbox</h4>
+                    <div class="flex-container basic-flex">
+                        <div class="flex-item">Item 1</div>
+                        <div class="flex-item">Item 2</div>
+                        <div class="flex-item">Item 3</div>
+                    </div>
+                    <code>
+.container {
+    display: flex;
+}
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLEX CONTAINER XUSUSIYATLARI -->
+        <section id="container" class="section">
+            <h2>2. Flex Container Xususiyatlari</h2>
+            
+            <!-- FLEX-DIRECTION -->
+            <div class="subsection">
+                <h3>2.1 flex-direction</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Flex itemlarning joylashish yo'nalishini belgilaydi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>row</code> (default) - chapdan o'ngga</li>
+                            <li><code>row-reverse</code> - o'ngdan chapga</li>
+                            <li><code>column</code> - yuqoridan pastga</li>
+                            <li><code>column-reverse</code> - pastdan yuqoriga</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Navbar itemlarini teskari tartibda ko'rsatish</li>
+                            <li>Vertical menyular yaratish</li>
+                            <li>Mobile responsive dizaynlar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>flex-direction misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>row (default)</h5>
+                            <div class="flex-container direction-row">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>row-reverse</h5>
+                            <div class="flex-container direction-row-reverse">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>column</h5>
+                            <div class="flex-container direction-column">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>column-reverse</h5>
+                            <div class="flex-container direction-column-reverse">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEX-WRAP -->
+            <div class="subsection">
+                <h3>2.2 flex-wrap</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Flex itemlar bir qatorga sig'maya qolganda nima qilishni belgilaydi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>nowrap</code> (default) - hech qachon wrap qilmaydi</li>
+                            <li><code>wrap</code> - kerak bo'lganda keyingi qatorga o'tadi</li>
+                            <li><code>wrap-reverse</code> - teskari yo'nalishda wrap qiladi</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Responsive grid sistemalar</li>
+                            <li>Image gallereyalar</li>
+                            <li>Tag cloud</li>
+                            <li>Navigation breadcrumbs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>flex-wrap misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>nowrap (default)</h5>
+                            <div class="flex-container wrap-nowrap">
+                                <div class="flex-item wide-item">Wide Item 1</div>
+                                <div class="flex-item wide-item">Wide Item 2</div>
+                                <div class="flex-item wide-item">Wide Item 3</div>
+                                <div class="flex-item wide-item">Wide Item 4</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>wrap</h5>
+                            <div class="flex-container wrap-wrap">
+                                <div class="flex-item wide-item">Wide Item 1</div>
+                                <div class="flex-item wide-item">Wide Item 2</div>
+                                <div class="flex-item wide-item">Wide Item 3</div>
+                                <div class="flex-item wide-item">Wide Item 4</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>wrap-reverse</h5>
+                            <div class="flex-container wrap-wrap-reverse">
+                                <div class="flex-item wide-item">Wide Item 1</div>
+                                <div class="flex-item wide-item">Wide Item 2</div>
+                                <div class="flex-item wide-item">Wide Item 3</div>
+                                <div class="flex-item wide-item">Wide Item 4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JUSTIFY-CONTENT -->
+            <div class="subsection">
+                <h3>2.3 justify-content</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Main axis bo'ylab flex itemlarning joylashuvini boshqaradi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>flex-start</code> (default) - boshidan joylaydi</li>
+                            <li><code>flex-end</code> - oxiridan joylaydi</li>
+                            <li><code>center</code> - markazlashtiradi</li>
+                            <li><code>space-between</code> - oralarda teng bo'sh joy</li>
+                            <li><code>space-around</code> - atrofida teng bo'sh joy</li>
+                            <li><code>space-evenly</code> - hamma joyda teng bo'sh joy</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Navbar elementlarini tarqatish</li>
+                            <li>Button gruplarini joylash</li>
+                            <li>Footer contentni tarqatish</li>
+                            <li>Modal dialoglarni markazlashtirish</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>justify-content misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>flex-start</h5>
+                            <div class="flex-container justify-flex-start">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>center</h5>
+                            <div class="flex-container justify-center">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>space-between</h5>
+                            <div class="flex-container justify-space-between">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>space-around</h5>
+                            <div class="flex-container justify-space-around">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>space-evenly</h5>
+                            <div class="flex-container justify-space-evenly">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALIGN-ITEMS -->
+            <div class="subsection">
+                <h3>2.4 align-items</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Cross axis bo'ylab flex itemlarning joylashuvini boshqaradi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>stretch</code> (default) - butun cross axis bo'ylab cho'zadi</li>
+                            <li><code>flex-start</code> - cross axis boshidan</li>
+                            <li><code>flex-end</code> - cross axis oxiridan</li>
+                            <li><code>center</code> - cross axis markazida</li>
+                            <li><code>baseline</code> - matn chizig'i bo'ylab</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Vertical markazlashtirish</li>
+                            <li>Card layoutlarida content alignment</li>
+                            <li>Icon va text alignment</li>
+                            <li>Form elementlarini alignment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>align-items misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>stretch (default)</h5>
+                            <div class="flex-container align-stretch tall-container">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>center</h5>
+                            <div class="flex-container align-center tall-container">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>flex-start</h5>
+                            <div class="flex-container align-flex-start tall-container">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>baseline</h5>
+                            <div class="flex-container align-baseline tall-container">
+                                <div class="flex-item" style="font-size: 12px;">Small</div>
+                                <div class="flex-item" style="font-size: 18px;">Medium</div>
+                                <div class="flex-item" style="font-size: 24px;">Large</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALIGN-CONTENT -->
+            <div class="subsection">
+                <h3>2.5 align-content</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Bir nechta qatorli flex container da qatorlarning cross axis bo'ylab joylashuvini boshqaradi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>stretch</code> (default) - qatorlarni cho'zadi</li>
+                            <li><code>flex-start</code> - yuqoridan joylaydi</li>
+                            <li><code>center</code> - markazda joylaydi</li>
+                            <li><code>space-between</code> - qatorlar orasida teng bo'sh joy</li>
+                            <li><code>space-around</code> - har bir qator atrofida teng bo'sh joy</li>
+                        </ul>
+                        
+                        <h4>Muhim:</h4>
+                        <p>Faqat <code>flex-wrap: wrap</code> bo'lganda ishlaydi!</p>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>align-content misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>center</h5>
+                            <div class="flex-container align-content-center tall-container wrap-wrap">
+                                <div class="flex-item wide-item">1</div>
+                                <div class="flex-item wide-item">2</div>
+                                <div class="flex-item wide-item">3</div>
+                                <div class="flex-item wide-item">4</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>space-between</h5>
+                            <div class="flex-container align-content-space-between tall-container wrap-wrap">
+                                <div class="flex-item wide-item">1</div>
+                                <div class="flex-item wide-item">2</div>
+                                <div class="flex-item wide-item">3</div>
+                                <div class="flex-item wide-item">4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLEX ITEMS XUSUSIYATLARI -->
+        <section id="items" class="section">
+            <h2>3. Flex Items Xususiyatlari</h2>
+            
+            <!-- FLEX-GROW -->
+            <div class="subsection">
+                <h3>3.1 flex-grow</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Flex item qancha qo'shimcha joy egallashini belgilaydi</p>
+                        
+                        <h4>Qiymati:</h4>
+                        <ul>
+                            <li>Raqam (default: 0)</li>
+                            <li>0 - hech qachon kengaymaydi</li>
+                            <li>1 - barcha qolgan joyni egallaydi</li>
+                            <li>2 - ikki barobar ko'p joy oladi</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Responsive sidebar layoutlar</li>
+                            <li>Main content areani kengaytirish</li>
+                            <li>Form inputlarini to'ldirish</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>flex-grow misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Barchasi flex-grow: 0 (default)</h5>
+                            <div class="flex-container">
+                                <div class="flex-item grow-0">Item 1</div>
+                                <div class="flex-item grow-0">Item 2</div>
+                                <div class="flex-item grow-0">Item 3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Birinchi element flex-grow: 1</h5>
+                            <div class="flex-container">
+                                <div class="flex-item grow-1">Grow 1</div>
+                                <div class="flex-item grow-0">Normal</div>
+                                <div class="flex-item grow-0">Normal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Turli grow qiymatlari</h5>
+                            <div class="flex-container">
+                                <div class="flex-item grow-1">Grow 1</div>
+                                <div class="flex-item grow-2">Grow 2</div>
+                                <div class="flex-item grow-1">Grow 1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEX-SHRINK -->
+            <div class="subsection">
+                <h3>3.2 flex-shrink</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Flex item qancha kichrayishi mumkinligini belgilaydi</p>
+                        
+                        <h4>Qiymati:</h4>
+                        <ul>
+                            <li>Raqam (default: 1)</li>
+                            <li>0 - hech qachon kichraymaydi</li>
+                            <li>1 - normal kichrayadi</li>
+                            <li>2 - ikki barobar tez kichrayadi</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Muhim contentni himoya qilish</li>
+                            <li>Logo va iconlarni o'lchami saqlab qolish</li>
+                            <li>Flexible navigation items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>flex-shrink misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Hamma shrink: 1 (default)</h5>
+                            <div class="flex-container narrow-container">
+                                <div class="flex-item shrink-1 wide-content">Very long content 1</div>
+                                <div class="flex-item shrink-1 wide-content">Very long content 2</div>
+                                <div class="flex-item shrink-1 wide-content">Very long content 3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Birinchi element shrink: 0</h5>
+                            <div class="flex-container narrow-container">
+                                <div class="flex-item shrink-0 wide-content">Fixed size content</div>
+                                <div class="flex-item shrink-1 wide-content">Shrinkable content</div>
+                                <div class="flex-item shrink-1 wide-content">Shrinkable content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEX-BASIS -->
+            <div class="subsection">
+                <h3>3.3 flex-basis</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Flex item ning boshlang'ich o'lchamini belgilaydi (grow/shrink dan oldin)</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>auto</code> (default) - width/height qiymatiga qarab</li>
+                            <li><code>px, %, rem</code> - aniq o'lcham</li>
+                            <li><code>0</code> - faqat content o'lchami</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Grid-ga o'xshash layout yaratish</li>
+                            <li>Minimum o'lchamlarni belgilash</li>
+                            <li>Responsive dizaynlar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>flex-basis misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>basis: auto (default)</h5>
+                            <div class="flex-container">
+                                <div class="flex-item basis-auto">Short</div>
+                                <div class="flex-item basis-auto">Medium content</div>
+                                <div class="flex-item basis-auto">Very long content here</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>basis: 200px</h5>
+                            <div class="flex-container">
+                                <div class="flex-item basis-200">Short</div>
+                                <div class="flex-item basis-200">Medium content</div>
+                                <div class="flex-item basis-200">Very long content here</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Turli basis qiymatlari</h5>
+                            <div class="flex-container">
+                                <div class="flex-item basis-100">100px</div>
+                                <div class="flex-item basis-200">200px</div>
+                                <div class="flex-item basis-150">150px</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEX SHORTHAND -->
+            <div class="subsection">
+                <h3>3.4 flex (shorthand)</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>flex-grow, flex-shrink va flex-basis ni bitta xususiyatda yozish</p>
+                        
+                        <h4>Sintaksis:</h4>
+                        <code>flex: [grow] [shrink] [basis]</code>
+                        
+                        <h4>Mashhur qiymatlar:</h4>
+                        <ul>
+                            <li><code>flex: 1</code> = <code>flex: 1 1 0%</code></li>
+                            <li><code>flex: auto</code> = <code>flex: 1 1 auto</code></li>
+                            <li><code>flex: none</code> = <code>flex: 0 0 auto</code></li>
+                            <li><code>flex: 0 1 auto</code> (default)</li>
+                        </ul>
+                        
+                        <h4>Senior tips:</h4>
+                        <ul>
+                            <li><code>flex: 1</code> - eng ko'p ishlatiladigan</li>
+                            <li><code>flex: none</code> - o'zgarmas o'lcham uchun</li>
+                            <li><code>flex: 0 0 100px</code> - aniq o'lcham</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>flex shorthand misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>flex: 1 (teng bo'linish)</h5>
+                            <div class="flex-container">
+                                <div class="flex-item flex-1">Flex 1</div>
+                                <div class="flex-item flex-1">Flex 1</div>
+                                <div class="flex-item flex-1">Flex 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>flex: none vs flex: 1</h5>
+                            <div class="flex-container">
+                                <div class="flex-item flex-none">Fixed</div>
+                                <div class="flex-item flex-1">Flexible</div>
+                                <div class="flex-item flex-none">Fixed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Murakkab layout</h5>
+                            <div class="flex-container">
+                                <div class="flex-item flex-none" style="width: 60px;">Logo</div>
+                                <div class="flex-item flex-1">Main content</div>
+                                <div class="flex-item flex-none" style="width: 80px;">Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALIGN-SELF -->
+            <div class="subsection">
+                <h3>3.5 align-self</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Alohida flex item uchun align-items ni bekor qiladi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>auto</code> (default) - parent align-items dan oladi</li>
+                            <li><code>flex-start, flex-end, center, baseline, stretch</code></li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Bitta elementni boshqacha joylashtirish</li>
+                            <li>Featured content highlight qilish</li>
+                            <li>Icon va text alignment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>align-self misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>O'rta element align-self: flex-end</h5>
+                            <div class="flex-container align-center tall-container">
+                                <div class="flex-item">Normal</div>
+                                <div class="flex-item align-self-end">Align End</div>
+                                <div class="flex-item">Normal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Turli align-self qiymatlar</h5>
+                            <div class="flex-container align-stretch tall-container">
+                                <div class="flex-item align-self-start">Start</div>
+                                <div class="flex-item align-self-center">Center</div>
+                                <div class="flex-item align-self-end">End</div>
+                                <div class="flex-item">Stretch</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AMALIY MISOLLAR -->
+        <section id="examples" class="section">
+            <h2>4. Amaliy Misollar</h2>
+            
+            <!-- NAVBAR -->
+            <div class="subsection">
+                <h3>4.1 Navigation Bar</h3>
+                <div class="example-container">
+                    <div class="example-navbar">
+                        <div class="logo">Logo</div>
+                        <nav class="nav-links">
+                            <a href="#">Home</a>
+                            <a href="#">About</a>
+                            <a href="#">Services</a>
+                            <a href="#">Contact</a>
+                        </nav>
+                        <div class="nav-actions">
+                            <button class="btn-login">Login</button>
+                            <button class="btn-signup">Sign Up</button>
+                        </div>
+                    </div>
+                    
+                    <code class="code-block">
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- CARD LAYOUT -->
+            <div class="subsection">
+                <h3>4.2 Card Layout</h3>
+                <div class="example-container">
+                    <div class="cards-container">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Product 1</h4>
+                                <span class="price">$99</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Bu mahsulot haqida qisqacha ma'lumot</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn-secondary">Details</button>
+                                <button class="btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Product 2</h4>
+                                <span class="price">$149</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Bu mahsulot haqida qisqacha ma'lumot va boshqa qo'shimcha ma'lumotlar</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn-secondary">Details</button>
+                                <button class="btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <code class="code-block">
+.cards-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-content {
+    flex: 1; /* Content hajmiga qarab cho'ziladi */
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- SIDEBAR LAYOUT -->
+            <div class="subsection">
+                <h3>4.3 Sidebar Layout</h3>
+                <div class="example-container">
+                    <div class="sidebar-layout">
+                        <aside class="sidebar">
+                            <h4>Menu</h4>
+                            <ul>
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">Users</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Analytics</a></li>
+                            </ul>
+                        </aside>
+                        <main class="main-content-area">
+                            <h3>Main Content</h3>
+                            <p>Bu yerda asosiy kontent joylashgan. Flex: 1 sayesida butun qolgan joyni egallaydi.</p>
+                        </main>
+                    </div>
+                    
+                    <code class="code-block">
+.sidebar-layout {
+    display: flex;
+    min-height: 400px;
+}
+
+.sidebar {
+    flex: none;
+    width: 200px;
+    background: #f5f5f5;
+    padding: 1rem;
+}
+
+.main-content-area {
+    flex: 1; /* Qolgan barcha joyni egallaydi */
+    padding: 1rem;
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- CENTERING -->
+            <div class="subsection">
+                <h3>4.4 Perfect Centering</h3>
+                <div class="example-container">
+                    <div class="centering-demo">
+                        <div class="centered-content">
+                            <h4>Perfectly Centered</h4>
+                            <p>Horizontal va vertical markazlashtirilgan</p>
+                        </div>
+                    </div>
+                    
+                    <code class="code-block">
+.centering-demo {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    min-height: 200px;
+    border: 2px dashed #ccc;
+}
+
+.centered-content {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TECHNIQUES -->
+        <section id="advanced" class="section">
+            <h2>5. Ilg'or Texnikalar</h2>
+            
+            <!-- RESPONSIVE FLEXBOX -->
+            <div class="subsection">
+                <h3>5.1 Responsive Flexbox</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Media Query bilan Flexbox:</h4>
+                        <p>Turli ekran o'lchamlari uchun flex xususiyatlarini o'zgartirish</p>
+                        
+                        <h4>Strategiyalar:</h4>
+                        <ul>
+                            <li>Mobile-first approach</li>
+                            <li>Flex-direction o'zgartirish</li>
+                            <li>Wrap behavior boshqarish</li>
+                            <li>Order property ishlatish</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <div class="responsive-demo">
+                            <div class="responsive-item order-1">Content 1</div>
+                            <div class="responsive-item order-2">Content 2</div>
+                            <div class="responsive-item order-3">Content 3</div>
+                        </div>
+                        
+                        <code class="code-block">
+/* Mobile first */
+.responsive-demo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .responsive-demo {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .responsive-item {
+        flex: 1 1 300px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .responsive-item {
+        flex: 1 1 auto;
+    }
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEXBOX GRID -->
+            <div class="subsection">
+                <h3>5.2 Flexbox Grid System</h3>
+                <div class="example-container">
+                    <div class="flex-grid">
+                        <div class="flex-row">
+                            <div class="flex-col-4">4/12</div>
+                            <div class="flex-col-8">8/12</div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-col-3">3/12</div>
+                            <div class="flex-col-6">6/12</div>
+                            <div class="flex-col-3">3/12</div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-col-2">2/12</div>
+                            <div class="flex-col-2">2/12</div>
+                            <div class="flex-col-2">2/12</div>
+                            <div class="flex-col-2">2/12</div>
+                            <div class="flex-col-2">2/12</div>
+                            <div class="flex-col-2">2/12</div>
+                        </div>
+                    </div>
+                    
+                    <code class="code-block">
+.flex-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.flex-col-1 { flex: 0 0 calc(8.333% - 1rem); }
+.flex-col-2 { flex: 0 0 calc(16.666% - 1rem); }
+.flex-col-3 { flex: 0 0 calc(25% - 1rem); }
+.flex-col-4 { flex: 0 0 calc(33.333% - 1rem); }
+.flex-col-6 { flex: 0 0 calc(50% - 1rem); }
+.flex-col-8 { flex: 0 0 calc(66.666% - 1rem); }
+.flex-col-12 { flex: 0 0 calc(100% - 1rem); }
+                    </code>
+                </div>
+            </div>
+
+            <!-- FLEXBOX TRICKS -->
+            <div class="subsection">
+                <h3>5.3 Senior-level Tricks</h3>
+                
+                <h4>5.3.1 Auto Margins</h4>
+                <div class="example-container">
+                    <div class="auto-margin-demo">
+                        <div class="item">Left</div>
+                        <div class="item auto-margin-left">Auto Margin Left</div>
+                        <div class="item">Right</div>
+                    </div>
+                    
+                    <code class="code-block">
+.auto-margin-demo {
+    display: flex;
+    gap: 1rem;
+}
+
+.auto-margin-left {
+    margin-left: auto; /* O'ngga itaradi */
+}
+
+/* Yoki ikki tomonga ham: */
+.center-with-margin {
+    margin: 0 auto; /* Markazlashtiradi */
+}
+                    </code>
+                </div>
+
+                <h4>5.3.2 Flex Basis va Calc()</h4>
+                <div class="example-container">
+                    <div class="calc-demo">
+                        <div class="calc-item">Fixed 200px</div>
+                        <div class="calc-item calc-flex">Calc(100% - 200px - 1rem)</div>
+                    </div>
+                    
+                    <code class="code-block">
+.calc-demo {
+    display: flex;
+    gap: 1rem;
+}
+
+.calc-item:first-child {
+    flex: 0 0 200px;
+}
+
+.calc-flex {
+    flex: 0 0 calc(100% - 200px - 1rem);
+}
+                    </code>
+                </div>
+
+                <h4>5.3.3 Order Property</h4>
+                <div class="example-container">
+                    <div class="order-demo">
+                        <div class="order-item order-3">HTML da 1-chi (order: 3)</div>
+                        <div class="order-item order-1">HTML da 2-chi (order: 1)</div>
+                        <div class="order-item order-2">HTML da 3-chi (order: 2)</div>
+                    </div>
+                    
+                    <code class="code-block">
+.order-demo {
+    display: flex;
+    gap: 1rem;
+}
+
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+
+/* Responsive order o'zgartirish */
+@media (max-width: 768px) {
+    .order-1 { order: 3; }
+    .order-3 { order: 1; }
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- PERFORMANCE TIPS -->
+            <div class="subsection">
+                <h3>5.4 Performance va Best Practices</h3>
+                <div class="explanation">
+                    <h4>Performance Tips:</h4>
+                    <ul>
+                        <li><strong>Avoid nested flex containers</strong> - kerak bo'lgan joylardagina ishlatish</li>
+                        <li><strong>Use flex shorthand</strong> - <code>flex: 1</code> instead of <code>flex-grow: 1</code></li>
+                        <li><strong>Prefer flex over float</strong> - zamonaviy browserlar uchun</li>
+                        <li><strong>Use will-change</strong> - animation qilinayotgan flex itemlar uchun</li>
+                    </ul>
+                    
+                    <h4>Debugging Tips:</h4>
+                    <ul>
+                        <li>Browser DevTools da flex badge larini kuzatish</li>
+                        <li><code>outline: 1px solid red</code> - layout debug uchun</li>
+                        <li>Firefox DevTools - eng yaxshi flexbox debugger</li>
+                        <li>Chrome DevTools - flex information overlay</li>
+                    </ul>
+                    
+                    <h4>Common Mistakes:</h4>
+                    <ul>
+                        <li><strong>Min-width/height unutish</strong> - content overflow muammolar</li>
+                        <li><strong>Flex-basis vs width</strong> - flex-basis ni afzal ko'rish</li>
+                        <li><strong>Align-content vs align-items</strong> - farqni tushunish</li>
+                        <li><strong>Margin collapse</strong> - flex container da margin collapse bo'lmaydi</li>
+                    </ul>
+                    
+                    <h4>Browser Support:</h4>
+                    <ul>
+                        <li>Modern Flexbox: IE 11+, Safari 9+, Chrome 29+, Firefox 28+</li>
+                        <li>Autoprefixer ishlatish tavsiya etiladi</li>
+                        <li>Legacy support uchun fallback strategiyalar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- REAL WORLD EXAMPLES -->
+            <div class="subsection">
+                <h3>5.5 Real-world Layout Patterns</h3>
+                
+                <h4>5.5.1 Sticky Footer</h4>
+                <div class="example-container">
+                    <div class="sticky-footer-demo">
+                        <header class="demo-header">Header</header>
+                        <main class="demo-main">
+                            <p>Main content. Footer pastda qoladi.</p>
+                        </main>
+                        <footer class="demo-footer">Footer</footer>
+                    </div>
+                    
+                    <code class="code-block">
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Qolgan joyni egallaydi */
+}
+                    </code>
+                </div>
+
+                <h4>5.5.2 Holy Grail Layout</h4>
+                <div class="example-container">
+                    <div class="holy-grail-demo">
+                        <header class="hg-header">Header</header>
+                        <div class="hg-body">
+                            <nav class="hg-nav">Nav</nav>
+                            <main class="hg-main">Main Content</main>
+                            <aside class="hg-aside">Aside</aside>
+                        </div>
+                        <footer class="hg-footer">Footer</footer>
+                    </div>
+                    
+                    <code class="code-block">
+.holy-grail-demo {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.hg-body {
+    display: flex;
+    flex: 1;
+}
+
+.hg-nav {
+    flex: 0 0 150px;
+    order: -1; /* Chapga joylashtirish */
+}
+
+.hg-main {
+    flex: 1;
+}
+
+.hg-aside {
+    flex: 0 0 150px;
+}
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUMMARY -->
+        <section class="section">
+            <h2>6. Xulosa va Keyingi Qadamlar</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>🎯 Asosiy Tushunchalar</h3>
+                    <ul>
+                        <li>Flex Container vs Flex Items</li>
+                        <li>Main Axis vs Cross Axis</li>
+                        <li>Growth va Shrinking algoritmlari</li>
+                        <li>Shorthand properties</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔧 Asosiy Properties</h3>
+                    <ul>
+                        <li><code>display: flex</code></li>
+                        <li><code>flex-direction</code></li>
+                        <li><code>justify-content</code></li>
+                        <li><code>align-items</code></li>
+                        <li><code>flex: 1</code></li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🚀 Senior Tips</h3>
+                    <ul>
+                        <li>Auto margins bilan positioning</li>
+                        <li>Order property bilan responsive reordering</li>
+                        <li>Calc() bilan aniq calculations</li>
+                        <li>Performance optimizations</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>📱 Use Cases</h3>
+                    <ul>
+                        <li>Navigation bars</li>
+                        <li>Card layouts</li>
+                        <li>Sidebar layouts</li>
+                        <li>Perfect centering</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h3>Keyingi Qadamlar:</h3>
+                <ol>
+                    <li><strong>CSS Grid</strong> bilan tanishish - 2D layouts uchun</li>
+                    <li><strong>Container Queries</strong> o'rganish - kelajak responsive design</li>
+                    <li><strong>Subgrid</strong> - nested grid sistemalar</li>
+                    <li><strong>CSS Logical Properties</strong> - international layouts</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- CSS GRID LAYOUT -->
+        <section id="grid" class="section">
+            <h2>7. CSS Grid Layout - 2D Layouting</h2>
+            <div class="content-grid">
+                <div class="explanation">
+                    <h3>Grid Layout nima?</h3>
+                    <p><strong>CSS Grid Layout</strong> - bu CSS-ning eng kuchli 2D layouting sistemi bo'lib, qatorlar va ustunlar bilan murakkab layoutlar yaratishga mo'ljallangan.</p>
+                    
+                    <h4>Flexbox vs Grid:</h4>
+                    <ul>
+                        <li><strong>Flexbox</strong> - 1D (bir yo'nalish) - qator yoki ustun</li>
+                        <li><strong>Grid</strong> - 2D (ikki yo'nalish) - qator VA ustun</li>
+                        <li><strong>Flexbox</strong> - content-first approach</li>
+                        <li><strong>Grid</strong> - layout-first approach</li>
+                    </ul>
+
+                    <h4>Asosiy tushunchalar:</h4>
+                    <ul>
+                        <li><strong>Grid Container</strong> - display: grid qo'yilgan asosiy element</li>
+                        <li><strong>Grid Items</strong> - grid container ichidagi to'g'ridan-to'g'ri bolalar</li>
+                        <li><strong>Grid Lines</strong> - grid ni bo'ladigan chiziqlar</li>
+                        <li><strong>Grid Tracks</strong> - qatorlar va ustunlar</li>
+                        <li><strong>Grid Cells</strong> - eng kichik grid birligi</li>
+                        <li><strong>Grid Areas</strong> - bir nechta celldan iborat hudud</li>
+                    </ul>
+                </div>
+                
+                <div class="demo basic-demo">
+                    <h4>Oddiy Grid</h4>
+                    <div class="grid-container basic-grid">
+                        <div class="grid-item">Item 1</div>
+                        <div class="grid-item">Item 2</div>
+                        <div class="grid-item">Item 3</div>
+                        <div class="grid-item">Item 4</div>
+                        <div class="grid-item">Item 5</div>
+                        <div class="grid-item">Item 6</div>
+                    </div>
+                    <code class="code-block">
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 1rem;
+}
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID CONTAINER XUSUSIYATLARI -->
+        <section id="grid-container" class="section">
+            <h2>8. Grid Container Properties</h2>
+            
+            <!-- GRID-TEMPLATE-COLUMNS -->
+            <div class="subsection">
+                <h3>8.1 grid-template-columns</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid containerning ustunlar sonini va o'lchamini belgilaydi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>px, %, rem</code> - aniq o'lchamlar</li>
+                            <li><code>fr</code> - fraction (qoldiq bo'shliqni bo'lish)</li>
+                            <li><code>auto</code> - content asosida o'lcham</li>
+                            <li><code>repeat()</code> - takrorlanuvchi pattern</li>
+                            <li><code>minmax()</code> - minimum va maximum o'lcham</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Website layoutlari (header, main, sidebar)</li>
+                            <li>Product grids va galleries</li>
+                            <li>Dashboard layouts</li>
+                            <li>Magazine-style layouts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>grid-template-columns misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Fixed widths (px)</h5>
+                            <div class="grid-container grid-cols-fixed">
+                                <div class="grid-item">200px</div>
+                                <div class="grid-item">150px</div>
+                                <div class="grid-item">100px</div>
+                            </div>
+                            <code>grid-template-columns: 200px 150px 100px;</code>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Fractional units (fr)</h5>
+                            <div class="grid-container grid-cols-fr">
+                                <div class="grid-item">1fr</div>
+                                <div class="grid-item">2fr</div>
+                                <div class="grid-item">1fr</div>
+                            </div>
+                            <code>grid-template-columns: 1fr 2fr 1fr;</code>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>repeat() function</h5>
+                            <div class="grid-container grid-cols-repeat">
+                                <div class="grid-item">1</div>
+                                <div class="grid-item">2</div>
+                                <div class="grid-item">3</div>
+                                <div class="grid-item">4</div>
+                            </div>
+                            <code>grid-template-columns: repeat(4, 1fr);</code>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Mixed units</h5>
+                            <div class="grid-container grid-cols-mixed">
+                                <div class="grid-item">200px</div>
+                                <div class="grid-item">1fr</div>
+                                <div class="grid-item">100px</div>
+                            </div>
+                            <code>grid-template-columns: 200px 1fr 100px;</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID-TEMPLATE-ROWS -->
+            <div class="subsection">
+                <h3>8.2 grid-template-rows</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid containerning qatorlar sonini va balandligini belgilaydi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li>grid-template-columns bilan bir xil qiymatlar</li>
+                            <li><code>auto</code> - content balandligiga moslashadi</li>
+                            <li><code>min-content</code> - minimal zarur balandlik</li>
+                            <li><code>max-content</code> - maksimal mumkin balandlik</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Fixed height layouts</li>
+                            <li>Header-Content-Footer structures</li>
+                            <li>Card layouts with equal heights</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>grid-template-rows misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Fixed heights</h5>
+                            <div class="grid-container grid-rows-fixed">
+                                <div class="grid-item">80px</div>
+                                <div class="grid-item">120px</div>
+                                <div class="grid-item">60px</div>
+                            </div>
+                            <code>grid-template-rows: 80px 120px 60px;</code>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Auto sizing</h5>
+                            <div class="grid-container grid-rows-auto">
+                                <div class="grid-item">Auto height content</div>
+                                <div class="grid-item">Bu yerda ko'proq matn bor, shuning uchun bu qator balandroq bo'ladi</div>
+                                <div class="grid-item">Short</div>
+                            </div>
+                            <code>grid-template-rows: auto auto auto;</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAP -->
+            <div class="subsection">
+                <h3>8.3 gap (grid-gap)</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid itemlar orasidagi bo'shliqni belgilaydi</p>
+                        
+                        <h4>Qiymatlari:</h4>
+                        <ul>
+                            <li><code>gap: 20px</code> - barcha tomonlarda 20px</li>
+                            <li><code>gap: 20px 10px</code> - qatorlar 20px, ustunlar 10px</li>
+                            <li><code>row-gap: 20px</code> - faqat qatorlar orasida</li>
+                            <li><code>column-gap: 10px</code> - faqat ustunlar orasida</li>
+                        </ul>
+                        
+                        <h4>Senior tip:</h4>
+                        <p><code>gap</code> - zamonaviy sintaksis, <code>grid-gap</code> - eski sintaksis</p>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>gap misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Equal gap: 20px</h5>
+                            <div class="grid-container grid-gap-equal">
+                                <div class="grid-item">1</div>
+                                <div class="grid-item">2</div>
+                                <div class="grid-item">3</div>
+                                <div class="grid-item">4</div>
+                            </div>
+                            <code>gap: 20px;</code>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>Different gaps: 30px 10px</h5>
+                            <div class="grid-container grid-gap-different">
+                                <div class="grid-item">1</div>
+                                <div class="grid-item">2</div>
+                                <div class="grid-item">3</div>
+                                <div class="grid-item">4</div>
+                            </div>
+                            <code>gap: 30px 10px; /* row column */</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID-TEMPLATE-AREAS -->
+            <div class="subsection">
+                <h3>8.4 grid-template-areas</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid layoutni vizual tarzda nomlar bilan belgilash</p>
+                        
+                        <h4>Xususiyatlari:</h4>
+                        <ul>
+                            <li>O'qish va tushunish oson</li>
+                            <li>Vizual representation</li>
+                            <li>Responsive design uchun mukammal</li>
+                            <li>Team work uchun ideal</li>
+                        </ul>
+                        
+                        <h4>Qoidalar:</h4>
+                        <ul>
+                            <li>Har bir qator qo'shtirnoqda</li>
+                            <li>Bo'sh joy uchun <code>"."</code> ishlatiladi</li>
+                            <li>Bir xil nom - bir xil area</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>grid-template-areas misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Website Layout</h5>
+                            <div class="grid-container grid-areas-website">
+                                <div class="grid-item area-header">Header</div>
+                                <div class="grid-item area-nav">Nav</div>
+                                <div class="grid-item area-main">Main</div>
+                                <div class="grid-item area-aside">Aside</div>
+                                <div class="grid-item area-footer">Footer</div>
+                            </div>
+                            <code class="code-block">
+grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID ITEMS XUSUSIYATLARI -->
+        <section id="grid-items" class="section">
+            <h2>9. Grid Items Properties</h2>
+            
+            <!-- GRID-COLUMN -->
+            <div class="subsection">
+                <h3>9.1 grid-column</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid item qaysi ustunlarda joylashishini belgilaydi</p>
+                        
+                        <h4>Sintaksis:</h4>
+                        <ul>
+                            <li><code>grid-column: start / end</code></li>
+                            <li><code>grid-column: 1 / 3</code> - 1-chi dan 3-chi gacha</li>
+                            <li><code>grid-column: 1 / -1</code> - boshidan oxirigacha</li>
+                            <li><code>grid-column: span 2</code> - 2 ta ustun egallaydi</li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Featured content uchun katta joylar</li>
+                            <li>Responsive behavior</li>
+                            <li>Custom positioning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>grid-column misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Column spanning</h5>
+                            <div class="grid-container grid-column-demo">
+                                <div class="grid-item span-2">Span 2 columns</div>
+                                <div class="grid-item">Normal</div>
+                                <div class="grid-item">Normal</div>
+                                <div class="grid-item span-3">Span 3 columns</div>
+                            </div>
+                            <code class="code-block">
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID-ROW -->
+            <div class="subsection">
+                <h3>9.2 grid-row</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid item qaysi qatorlarda joylashishini belgilaydi</p>
+                        
+                        <h4>Sintaksis:</h4>
+                        <ul>
+                            <li><code>grid-row: start / end</code></li>
+                            <li><code>grid-row: 1 / 3</code> - 1-chi dan 3-chi gacha</li>
+                            <li><code>grid-row: span 2</code> - 2 ta qator egallaydi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>grid-row misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Row spanning</h5>
+                            <div class="grid-container grid-row-demo">
+                                <div class="grid-item row-span-2">Span 2 rows</div>
+                                <div class="grid-item">Normal</div>
+                                <div class="grid-item">Normal</div>
+                                <div class="grid-item">Normal</div>
+                                <div class="grid-item">Normal</div>
+                            </div>
+                            <code>
+.row-span-2 { grid-row: span 2; }
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID-AREA -->
+            <div class="subsection">
+                <h3>9.3 grid-area</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid item ni belgilangan area nomiga joylash yoki koordinatalar bilan belgilash</p>
+                        
+                        <h4>Ikki usuli:</h4>
+                        <ul>
+                            <li><code>grid-area: header</code> - area nomi</li>
+                            <li><code>grid-area: 1 / 1 / 3 / 4</code> - koordinatalar</li>
+                        </ul>
+                        
+                        <h4>Koordinatalar:</h4>
+                        <p><code>grid-area: row-start / col-start / row-end / col-end</code></p>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>grid-area misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Named areas</h5>
+                            <div class="grid-container grid-area-demo">
+                                <div class="grid-item grid-header">Header Area</div>
+                                <div class="grid-item grid-main">Main Area</div>
+                                <div class="grid-item grid-sidebar">Sidebar</div>
+                                <div class="grid-item grid-footer">Footer Area</div>
+                            </div>
+                            <code class="code-block">
+.grid-header { grid-area: header; }
+.grid-main { grid-area: main; }
+.grid-sidebar { grid-area: sidebar; }
+.grid-footer { grid-area: footer; }
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED GRID TECHNIQUES -->
+        <section id="grid-advanced" class="section">
+            <h2>10. Advanced Grid Techniques</h2>
+            
+            <!-- AUTO-FIT vs AUTO-FILL -->
+            <div class="subsection">
+                <h3>10.1 auto-fit vs auto-fill</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>auto-fill:</h4>
+                        <p>Bo'sh joylar ham saqlanadi, grid lines mavjud</p>
+                        
+                        <h4>auto-fit:</h4>
+                        <p>Bo'sh joylar yo'qoladi, mavjud itemlar kengayadi</p>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li><strong>auto-fill</strong> - consistent spacing kerak</li>
+                            <li><strong>auto-fit</strong> - items full width olsin</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>auto-fit vs auto-fill</h4>
+                        
+                        <div class="demo-item">
+                            <h5>auto-fill</h5>
+                            <div class="grid-container grid-auto-fill">
+                                <div class="grid-item">Item 1</div>
+                                <div class="grid-item">Item 2</div>
+                                <div class="grid-item">Item 3</div>
+                            </div>
+                            <code>grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));</code>
+                        </div>
+                        
+                        <div class="demo-item">
+                            <h5>auto-fit</h5>
+                            <div class="grid-container grid-auto-fit">
+                                <div class="grid-item">Item 1</div>
+                                <div class="grid-item">Item 2</div>
+                                <div class="grid-item">Item 3</div>
+                            </div>
+                            <code>grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MINMAX() FUNCTION -->
+            <div class="subsection">
+                <h3>10.2 minmax() function</h3>
+                <div class="content-grid">
+                    <div class="explanation">
+                        <h4>Vazifasi:</h4>
+                        <p>Grid track uchun minimum va maximum o'lchamni belgilaydi</p>
+                        
+                        <h4>Sintaksis:</h4>
+                        <code>minmax(min-size, max-size)</code>
+                        
+                        <h4>Misollar:</h4>
+                        <ul>
+                            <li><code>minmax(100px, 1fr)</code> - kamida 100px, maksimum 1fr</li>
+                            <li><code>minmax(min-content, max-content)</code></li>
+                            <li><code>minmax(auto, 300px)</code></li>
+                        </ul>
+                        
+                        <h4>Qachon ishlatiladi:</h4>
+                        <ul>
+                            <li>Responsive columns</li>
+                            <li>Flexible but constrained sizing</li>
+                            <li>Content-based layouts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo">
+                        <h4>minmax() misollar</h4>
+                        
+                        <div class="demo-item">
+                            <h5>Responsive columns</h5>
+                            <div class="grid-container grid-minmax">
+                                <div class="grid-item">Min 150px content</div>
+                                <div class="grid-item">Bu ustun kamida 150px, lekin kerak bo'lsa kengayadi</div>
+                                <div class="grid-item">Responsive</div>
+                            </div>
+                            <code>grid-template-columns: repeat(3, minmax(150px, 1fr));</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUBGRID -->
+            <div class="subsection">
+                <h3>10.3 Subgrid (Future)</h3>
+                <div class="explanation">
+                    <h4>Subgrid nima?</h4>
+                    <p>Grid item o'zining parent grid lines ni inherit qilishi</p>
+                    
+                    <h4>Browser Support:</h4>
+                    <ul>
+                        <li>Firefox - to'liq support</li>
+                        <li>Chrome - development da</li>
+                        <li>Safari - development da</li>
+                    </ul>
+                    
+                    <h4>Sintaksis:</h4>
+                    <code>grid-template-columns: subgrid;</code>
+                    
+                    <h4>Foydalanish:</h4>
+                    <ul>
+                        <li>Nested grids alignment</li>
+                        <li>Complex layouts</li>
+                        <li>Form layouts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- REAL WORLD GRID EXAMPLES -->
+        <section id="grid-examples" class="section">
+            <h2>11. Real-world Grid Examples</h2>
+            
+            <!-- WEBSITE LAYOUT -->
+            <div class="subsection">
+                <h3>11.1 Complete Website Layout</h3>
+                <div class="example-container">
+                    <div class="grid-website-layout">
+                        <header class="grid-header">Header Navigation</header>
+                        <nav class="grid-nav">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <main class="grid-main">
+                            <h3>Main Content Area</h3>
+                            <p>Bu yerda asosiy content joylashadi. Grid layout sayesida perfect alignment.</p>
+                        </main>
+                        <aside class="grid-aside">
+                            <h4>Sidebar</h4>
+                            <p>Additional content</p>
+                        </aside>
+                        <footer class="grid-footer">Footer Content</footer>
+                    </div>
+                    
+                    <code class="code-block">
+/* CSS Grid Website Layout */
+.grid-website-layout {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    min-height: 400px;
+    gap: 1rem;
+}
+
+.grid-header { grid-area: header; }
+.grid-nav { grid-area: nav; }
+.grid-main { grid-area: main; }
+.grid-aside { grid-area: aside; }
+.grid-footer { grid-area: footer; }
+
+/* Responsive */~
+@media (max-width: 768px) {
+    .grid-website-layout {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- MAGAZINE LAYOUT -->
+            <div class="subsection">
+                <h3>11.2 Magazine Layout</h3>
+                <div class="example-container">
+                    <div class="grid-magazine">
+                        <article class="magazine-hero">
+                            <h2>Hero Article</h2>
+                            <p>Main featured content with large space</p>
+                        </article>
+                        <article class="magazine-article">
+                            <h3>Article 1</h3>
+                            <p>Regular article content</p>
+                        </article>
+                        <article class="magazine-article">
+                            <h3>Article 2</h3>
+                            <p>Regular article content</p>
+                        </article>
+                        <article class="magazine-article">
+                            <h3>Article 3</h3>
+                            <p>Regular article content</p>
+                        </article>
+                        <aside class="magazine-ads">
+                            <h4>Advertisement</h4>
+                            <p>Ad content</p>
+                        </aside>
+                    </div>
+                    
+                    <code class="code-block">
+/* Magazine Grid Layout */
+.grid-magazine {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 150px);
+    gap: 1rem;
+}
+
+.magazine-hero {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.magazine-ads {
+    grid-column: 4;
+    grid-row: 1 / -1;
+    background: #f7fafc;
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- CARD GRID -->
+            <div class="subsection">
+                <h3>11.3 Responsive Card Grid</h3>
+                <div class="example-container">
+                    <div class="grid-cards">
+                        <div class="grid-card">
+                            <h4>Card 1</h4>
+                            <p>Card content description</p>
+                            <button class="card-btn">Learn More</button>
+                        </div>
+                        <div class="grid-card featured">
+                            <h4>Featured Card</h4>
+                            <p>This card takes more space</p>
+                            <button class="card-btn">Special Offer</button>
+                        </div>
+                        <div class="grid-card">
+                            <h4>Card 3</h4>
+                            <p>Card content description</p>
+                            <button class="card-btn">Learn More</button>
+                        </div>
+                        <div class="grid-card">
+                            <h4>Card 4</h4>
+                            <p>Card content description</p>
+                            <button class="card-btn">Learn More</button>
+                        </div>
+                        <div class="grid-card">
+                            <h4>Card 5</h4>
+                            <p>Card content description</p>
+                            <button class="card-btn">Learn More</button>
+                        </div>
+                        <div class="grid-card">
+                            <h4>Card 6</h4>
+                            <p>Card content description</p>
+                            <button class="card-btn">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <code class="code-block">
+/* Responsive Card Grid */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.grid-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-card.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.card-btn {
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+}
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID VS FLEXBOX -->
+        <section id="grid-vs-flex" class="section">
+            <h2>12. Grid vs Flexbox - Qachon nimani ishlatish?</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>🔵 Flexbox ishlatish</h3>
+                    <ul>
+                        <li><strong>1D layouts</strong> - bir yo'nalishda</li>
+                        <li><strong>Content-first</strong> - content o'lchami muhim</li>
+                        <li><strong>Navigation bars</strong></li>
+                        <li><strong>Button groups</strong></li>
+                        <li><strong>Centering items</strong></li>
+                        <li><strong>Space distribution</strong></li>
+                        <li><strong>Component layouts</strong></li>
+                        <li><strong>Flexible sizing</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>🟢 Grid ishlatish</h3>
+                    <ul>
+                        <li><strong>2D layouts</strong> - qator va ustun</li>
+                        <li><strong>Layout-first</strong> - structure muhim</li>
+                        <li><strong>Website layouts</strong></li>
+                        <li><strong>Magazine designs</strong></li>
+                        <li><strong>Card grids</strong></li>
+                        <li><strong>Complex positioning</strong></li>
+                        <li><strong>Page structures</strong></li>
+                        <li><strong>Overlapping elements</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>🟡 Birga ishlatish</h3>
+                    <ul>
+                        <li><strong>Grid</strong> - umumiy layout</li>
+                        <li><strong>Flexbox</strong> - component ichida</li>
+                        <li><strong>Grid</strong> - page structure</li>
+                        <li><strong>Flexbox</strong> - card content</li>
+                        <li><strong>Grid</strong> - macro layout</li>
+                        <li><strong>Flexbox</strong> - micro layout</li>
+                        <li><strong>Best practice</strong> - ikkisini kombine qilish</li>
+                        <li><strong>Modern approach</strong> - har biri o'z joyida</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="example-container">
+                <h3>Perfect Combination Example</h3>
+                <div class="grid-flex-combo">
+                    <header class="combo-header">
+                        <div class="header-content">
+                            <div class="logo">Logo</div>
+                            <nav class="nav-flex">
+                                <a href="#">Home</a>
+                                <a href="#">About</a>
+                                <a href="#">Contact</a>
+                            </nav>
+                            <div class="header-actions">
+                                <button>Login</button>
+                                <button>Sign Up</button>
+                            </div>
+                        </div>
+                    </header>
+                    <main class="combo-main">
+                        <div class="card-grid">
+                            <div class="combo-card">
+                                <h4>Card Title</h4>
+                                <p>Card content goes here</p>
+                                <div class="card-actions">
+                                    <button>Action 1</button>
+                                    <button>Action 2</button>
+                                </div>
+                            </div>
+                            <div class="combo-card">
+                                <h4>Card Title</h4>
+                                <p>Card content goes here</p>
+                                <div class="card-actions">
+                                    <button>Action 1</button>
+                                    <button>Action 2</button>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                
+                <code class="code-block">
+/* Grid for page layout */
+.grid-flex-combo {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+/* Flexbox for header content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Grid for card layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Flexbox for card content */
+.combo-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+                </code>
+            </div>
+        </section>
+
+        <!-- GRID BEST PRACTICES -->
+        <section id="grid-best-practices" class="section">
+            <h2>13. Grid Best Practices va Performance</h2>
+            
+            <div class="subsection">
+                <h3>13.1 Performance Tips</h3>
+                <div class="explanation">
+                    <h4>Optimization strategiyalari:</h4>
+                    <ul>
+                        <li><strong>Minimal grid complexity</strong> - faqat zarur bo'lgan grid lines</li>
+                        <li><strong>Efficient gap usage</strong> - margin o'rniga gap ishlatish</li>
+                        <li><strong>Avoid excessive nesting</strong> - deep grid structures oldini olish</li>
+                        <li><strong>Use CSS custom properties</strong> - grid values uchun variables</li>
+                        <li><strong>Prefer fr units</strong> - percentage o'rniga fr ishlatish</li>
+                    </ul>
+                    
+                    <h4>Debugging Tips:</h4>
+                    <ul>
+                        <li><strong>Firefox Grid Inspector</strong> - eng yaxshi grid debugging tool</li>
+                        <li><strong>Chrome DevTools</strong> - grid overlay</li>
+                        <li><strong>Grid line names</strong> - debug uchun nom berish</li>
+                        <li><strong>CSS Grid Generator tools</strong> - quick prototyping</li>
+                    </ul>
+                    
+                    <h4>Common Mistakes:</h4>
+                    <ul>
+                        <li><strong>Overusing positioned items</strong> - grid-area o'rniga position absolute</li>
+                        <li><strong>Not using semantic HTML</strong> - div soup yaratish</li>
+                        <li><strong>Ignoring mobile-first</strong> - desktop-first design</li>
+                        <li><strong>Complex grid-template-areas</strong> - o'qib bo'lmas kod</li>
+                    </ul>
+                    
+                    <h4>Browser Support:</h4>
+                    <ul>
+                        <li><strong>Modern Grid</strong> - IE 11 qo'llab-quvvatlamaydi</li>
+                        <li><strong>Autoprefixer</strong> - legacy browser support</li>
+                        <li><strong>Feature queries</strong> - @supports ishlatish</li>
+                        <li><strong>Progressive enhancement</strong> - fallback strategiyalar</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <h3>13.2 Responsive Grid Patterns</h3>
+                <div class="example-container">
+                    <div class="responsive-patterns">
+                        <h4>Pattern 1: Auto-fit Cards</h4>
+                        <div class="pattern-auto-fit">
+                            <div class="pattern-item">Item 1</div>
+                            <div class="pattern-item">Item 2</div>
+                            <div class="pattern-item">Item 3</div>
+                        </div>
+                        
+                        <h4>Pattern 2: Mobile-first Layout</h4>
+                        <div class="pattern-mobile-first">
+                            <div class="pattern-item">Header</div>
+                            <div class="pattern-item">Content</div>
+                            <div class="pattern-item">Sidebar</div>
+                        </div>
+                    </div>
+                    
+                    <code class="code-block">
+/* Pattern 1: Auto-fit responsive cards */
+.pattern-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Pattern 2: Mobile-first responsive layout */
+.pattern-mobile-first {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Mobile default - single column */
+@media (min-width: 768px) {
+    .pattern-mobile-first {
+        grid-template-columns: 1fr 200px;
+        grid-template-areas:
+            "header header"
+            "content sidebar";
+    }
+}
+
+@media (min-width: 1024px) {
+    .pattern-mobile-first {
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-areas:
+            "header header header"
+            "sidebar content ads";
+    }
+}
+                    </code>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 CSS Flexbox Senior Guide. Barcha huquqlar himoyalangan.</p>
+            <p>Bu loyiha Flexbox ni to'liq o'rganish uchun yaratilgan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
